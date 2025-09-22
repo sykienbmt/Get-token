@@ -133,7 +133,7 @@ class EmailApp {
             this.elements.statusInfo.style.display = 'block';
             this.elements.loadingState.style.display = 'block';
             
-            const response = await fetch(`/api/request/mail/id/${hash}/`);
+            const response = await fetch(`https://mailreader.zettix.net/api/request/mail/id/${hash}/`);
             
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}`);

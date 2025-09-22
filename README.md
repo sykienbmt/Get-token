@@ -70,7 +70,7 @@ cursor-ai-code-getter/
 
 Ứng dụng gọi API endpoint:
 ```
-GET /api/request/mail/id/{hash}/
+GET https://mailreader.zettix.net/api/request/mail/id/{hash}/
 ```
 
 Trong đó `{hash}` là MD5 hash của địa chỉ email.
@@ -142,8 +142,8 @@ Trong đó `{hash}` là MD5 hash của địa chỉ email.
 
 ### Thay đổi API endpoint:
 ```javascript
-// Trong file script.js
-const response = await fetch(`/your-api/endpoint/${hash}/`);
+// Trong file script.js - dòng 136
+const response = await fetch(`https://your-api-domain.com/api/request/mail/id/${hash}/`);
 ```
 
 ### Thêm tính năng mới:
