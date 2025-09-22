@@ -50,6 +50,8 @@ npx http-server . -p 8000
 
 ```
 cursor-ai-code-getter/
+├── api/
+│   └── proxy.js        # Vercel Serverless Function (CORS proxy)
 ├── index.html          # File HTML chính
 ├── styles.css          # File CSS styling
 ├── script.js           # File JavaScript logic
