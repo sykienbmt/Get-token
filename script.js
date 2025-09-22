@@ -133,13 +133,44 @@ class EmailApp {
             this.elements.statusInfo.style.display = 'block';
             this.elements.loadingState.style.display = 'block';
             
-            const response = await fetch(`https://mailreader.zettix.net/api/request/mail/id/${hash}/`);
+            // Try multiple CORS proxy options
+            const corsProxies = [
+                `https://cors-anywhere.herokuapp.com/https://mailreader.zettix.net/api/request/mail/id/${hash}/`,
+                `https://api.allorigins.win/get?url=${encodeURIComponent(`https://mailreader.zettix.net/api/request/mail/id/${hash}/`)}`,
+                `https://corsproxy.io/?https://mailreader.zettix.net/api/request/mail/id/${hash}/`
+            ];
             
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
+            let response;
+            let data;
+            
+            for (let i = 0; i < corsProxies.length; i++) {
+                try {
+                    console.log(`Trying proxy ${i + 1}:`, corsProxies[i]);
+                    response = await fetch(corsProxies[i]);
+                    
+                    if (response.ok) {
+                        if (corsProxies[i].includes('allorigins.win')) {
+                            // AllOrigins wraps response in contents field
+                            const wrapper = await response.json();
+                            data = JSON.parse(wrapper.contents);
+                        } else {
+                            data = await response.json();
+                        }
+                        console.log('Success with proxy', i + 1);
+                        break;
+                    }
+                } catch (proxyError) {
+                    console.log(`Proxy ${i + 1} failed:`, proxyError);
+                    if (i === corsProxies.length - 1) {
+                        throw proxyError;
+                    }
+                }
+            }
+            
+            if (!data) {
+                throw new Error('All CORS proxies failed');
             }
 
-            const data = await response.json();
             console.log('API Response:', data);
 
             if (Array.isArray(data)) {
@@ -152,7 +183,7 @@ class EmailApp {
 
         } catch (error) {
             console.error('Error fetching emails:', error);
-            this.showError('Không thể tải email. Vui lòng kiểm tra kết nối mạng.');
+            this.showError('Không thể tải email. Lỗi CORS - vui lòng thử lại sau hoặc sử dụng extension CORS.');
             this.hideAllStates();
         } finally {
             this.setLoadingState(false);

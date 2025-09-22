@@ -131,7 +131,10 @@ Trong đó `{hash}` là MD5 hash của địa chỉ email.
 
 2. **Cách 2: Qua CLI**
    ```bash
+   # Cài Vercel CLI (chỉ cần 1 lần)
    npm install -g vercel
+   
+   # Deploy
    cd cursor-ai-code-getter
    vercel
    ```
@@ -166,8 +169,9 @@ const response = await fetch(`https://your-api-domain.com/api/request/mail/id/${
 ## 🐛 Troubleshooting
 
 ### Lỗi CORS khi gọi API:
-- Cấu hình CORS headers trên server
-- Hoặc sử dụng proxy trong development
+- **Đã fix**: Sử dụng multiple CORS proxies tự động
+- **Backup options**: 3 proxy servers khác nhau
+- **Manual fix**: Cài CORS browser extension nếu cần
 
 ### Email không hiển thị:
 - Kiểm tra format response từ API
