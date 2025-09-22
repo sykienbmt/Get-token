@@ -125,9 +125,22 @@ Trong đó `{hash}` là MD5 hash của địa chỉ email.
 3. Auto deploy khi có commit mới
 
 ### Vercel
-1. Import project từ GitHub
-2. Zero-config deployment
-3. Automatic HTTPS và CDN
+1. **Cách 1: Qua Dashboard**
+   - Import project từ GitHub
+   - Vercel sẽ tự động detect static site
+   - Deploy ngay lập tức
+
+2. **Cách 2: Qua CLI**
+   ```bash
+   npm install -g vercel
+   cd cursor-ai-code-getter
+   vercel
+   ```
+
+3. **Cấu hình tự động**
+   - File `vercel.json` đã được cấu hình sẵn
+   - Zero-config deployment
+   - Automatic HTTPS và CDN
 
 ## 🔧 Customization
 
@@ -164,6 +177,11 @@ const response = await fetch(`https://your-api-domain.com/api/request/mail/id/${
 ### Styling bị lỗi trên mobile:
 - Kiểm tra viewport meta tag
 - Test trên multiple devices
+
+### Lỗi Vercel deployment:
+- **"No Output Directory"**: File `vercel.json` đã được cấu hình để fix lỗi này
+- **Build failed**: Đảm bảo tất cả file trong root directory của project
+- **404 errors**: Kiểm tra routing trong `vercel.json`
 
 ## 📞 Support
 

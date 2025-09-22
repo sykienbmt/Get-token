@@ -6,8 +6,9 @@
   "scripts": {
     "start": "npx http-server . -p 3000 -o",
     "dev": "npx live-server --port=3000 --open=/",
-    "build": "echo 'No build process needed for static site'",
-    "deploy": "echo 'Ready for deployment'"
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel --prod",
+    "vercel-build": "echo 'Static files ready for deployment'"
   },
   "keywords": [
     "cursor-ai",
