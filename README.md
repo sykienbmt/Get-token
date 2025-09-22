@@ -25,26 +25,25 @@
 
 - Trình duyệt web hiện đại (Chrome, Firefox, Safari, Edge)
 - Kết nối internet
-- Server backend API (tùy chọn cho development)
+- Chỉ vậy thôi! Không cần Node.js, NPM hay dependencies gì cả
 
 ## 🚀 Cách chạy project
 
-### Cách 1: Chạy trực tiếp
+### Cách 1: Chạy trực tiếp (Đơn giản nhất)
 1. Clone hoặc tải project về máy
 2. Mở file `index.html` bằng trình duyệt
+3. Hoàn thành!
 
-### Cách 2: Sử dụng HTTP Server (Khuyến nghị)
-1. Cài đặt Node.js
-2. Chạy lệnh:
+### Cách 2: Sử dụng HTTP Server (Tùy chọn)
 ```bash
-npm install
-npm start
-```
-3. Mở trình duyệt tại `http://localhost:3000`
+# Python 3
+python -m http.server 8000
 
-### Cách 3: Sử dụng Live Server (Development)
-```bash
-npm run dev
+# Python 2  
+python -m SimpleHTTPServer 8000
+
+# Node.js
+npx http-server . -p 8000
 ```
 
 ## 📁 Cấu trúc project
@@ -54,8 +53,7 @@ cursor-ai-code-getter/
 ├── index.html          # File HTML chính
 ├── styles.css          # File CSS styling
 ├── script.js           # File JavaScript logic
-├── package.json        # Cấu hình NPM
-└── README.md          # Tài liệu hướng dẫn
+└── README.md           # Tài liệu hướng dẫn
 ```
 
 ## 🎨 Giao diện
