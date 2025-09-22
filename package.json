@@ -1,0 +1,35 @@
+{
+  "name": "cursor-ai-code-getter",
+  "version": "1.0.0",
+  "description": "Get Code Cursor AI - Email checker application for Cursor AI activation codes",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Ready for deployment'"
+  },
+  "keywords": [
+    "cursor-ai",
+    "email-checker",
+    "activation-codes",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cursor-ai-code-getter.git"
+  },
+  "homepage": "https://yourusername.github.io/cursor-ai-code-getter",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

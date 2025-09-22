@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Code Cursor AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Get Code Cursor AI</h1>
+            <p>Nhận mã kích hoạt Cursor AI miễn phí</p>
+        </header>
+
+        <main>
+            <div class="email-form">
+                <form id="emailForm">
+                    <div class="input-group">
+                        <input 
+                            type="email" 
+                            id="emailInput" 
+                            placeholder="Nhập địa chỉ email"
+                            class="email-input"
+                            required
+                        >
+                    </div>
+                    <div id="errorMessage" class="error" style="display: none;"></div>
+                    <button type="submit" id="checkButton" class="btn">
+                        Kiểm tra hộp thư
+                    </button>
+                </form>
+            </div>
+
+            <div id="statusInfo" class="status-info" style="display: none;">
+                <strong>Đang kiểm tra hộp thư:</strong> <span id="currentEmail"></span>
+            </div>
+
+            <div id="loadingState" class="email-list" style="display: none;">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Đang tải email...</p>
+                </div>
+            </div>
+
+            <div id="emailList" class="email-list" style="display: none;">
+                <div class="inbox-header">
+                    Hộp thư đến (<span id="emailCount">0</span> <span id="emailText">emails</span>)
+                </div>
+                <div id="emailContainer"></div>
+            </div>
+
+            <div id="emptyState" class="email-list" style="display: none;">
+                <div class="empty-state">
+                    <h3>Không tìm thấy email</h3>
+                    <p>Hộp thư này trống hoặc địa chỉ email không tồn tại</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Email Modal -->
+    <div id="emailModal" class="email-modal" style="display: none;">
+        <div class="email-modal-content">
+            <div class="email-modal-header">
+                <div>
+                    <h2 id="modalSubject" class="email-modal-title"></h2>
+                </div>
+                <button id="closeModal" class="email-modal-close">×</button>
+            </div>
+            <div class="email-modal-info">
+                <div class="email-modal-info-item">
+                    <span class="info-label">Từ:</span>
+                    <span id="modalFrom" class="info-value"></span>
+                </div>
+                <div class="email-modal-info-item">
+                    <span class="info-label">Ngày:</span>
+                    <span id="modalDate" class="info-value"></span>
+                </div>
+                <div id="modalAttachments" class="email-modal-info-item" style="display: none;">
+                    <span class="info-label">Đính kèm:</span>
+                    <span id="modalAttachmentCount" class="info-value attachment-badge"></span>
+                </div>
+            </div>
+            <div class="email-modal-content-area">
+                <iframe id="modalIframe" class="email-modal-iframe" style="display: none;" sandbox="allow-same-origin"></iframe>
+                <div id="modalText" class="email-modal-text" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
