@@ -125,9 +125,10 @@ Trong đó `{hash}` là MD5 hash của địa chỉ email.
 3. Auto deploy khi có commit mới
 
 ### Vercel
-1. **Cách 1: Qua Dashboard**
+1. **Cách 1: Qua Dashboard (Khuyến nghị)**
    - Import project từ GitHub
-   - Vercel sẽ tự động detect static site
+   - Vercel tự động detect static HTML site
+   - Zero-config deployment - không cần vercel.json
    - Deploy ngay lập tức
 
 2. **Cách 2: Qua CLI**
@@ -137,10 +138,10 @@ Trong đó `{hash}` là MD5 hash của địa chỉ email.
    vercel
    ```
 
-3. **Cấu hình tự động**
-   - File `vercel.json` đã được cấu hình sẵn
-   - Zero-config deployment
+3. **Tự động**
+   - Không cần file config
    - Automatic HTTPS và CDN
+   - Static files được serve trực tiếp
 
 ## 🔧 Customization
 
@@ -179,9 +180,9 @@ const response = await fetch(`https://your-api-domain.com/api/request/mail/id/${
 - Test trên multiple devices
 
 ### Lỗi Vercel deployment:
-- **"No Output Directory"**: File `vercel.json` đã được cấu hình để fix lỗi này
-- **Build failed**: Đảm bảo tất cả file trong root directory của project
-- **404 errors**: Kiểm tra routing trong `vercel.json`
+- **"No Output Directory"**: Đã fix - không cần vercel.json cho static HTML
+- **Build failed**: Đảm bảo có file `index.html` trong root directory
+- **404 errors**: Static files được serve tự động, không cần config routing
 
 ## 📞 Support
 
